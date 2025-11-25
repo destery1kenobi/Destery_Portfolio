@@ -1,0 +1,1417 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Destery1Kenobi LLC - Portfolio</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+            background: linear-gradient(180deg, 
+                rgba(0, 0, 0, 0.7) 0%, 
+                rgba(10, 10, 10, 0.5) 15%, 
+                rgba(26, 10, 42, 0.8) 50%, 
+                rgba(10, 10, 10, 0.5) 85%, 
+                rgba(0, 0, 0, 0.7) 100%
+            ), #000000;
+            color: #ffffff;
+            line-height: 1.6;
+            overflow-x: hidden;
+            position: relative;
+            min-height: 100vh;
+        }
+
+        /* Animated gradient background - now visible through transparent top/bottom */
+        body::before {
+            content: '';
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: 
+                radial-gradient(ellipse at 20% 30%, rgba(102, 126, 234, 0.2) 0%, transparent 50%),
+                radial-gradient(ellipse at 80% 70%, rgba(118, 75, 162, 0.2) 0%, transparent 50%),
+                radial-gradient(ellipse at 50% 50%, rgba(240, 147, 251, 0.15) 0%, transparent 60%);
+            animation: gradientShift 15s ease-in-out infinite;
+            pointer-events: none;
+            z-index: 0;
+        }
+
+        @keyframes gradientShift {
+            0%, 100% {
+                transform: translate(0, 0) scale(1);
+                opacity: 1;
+            }
+            25% {
+                transform: translate(5%, -5%) scale(1.05);
+                opacity: 0.8;
+            }
+            50% {
+                transform: translate(-3%, 5%) scale(0.95);
+                opacity: 1;
+            }
+            75% {
+                transform: translate(3%, 3%) scale(1.03);
+                opacity: 0.9;
+            }
+        }
+
+        /* Sci-fi circuit overlay */
+        .circuit-overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            pointer-events: none;
+            z-index: 0;
+            overflow: hidden;
+        }
+
+        /* Pulsing energy orbs */
+        .energy-orb {
+            position: absolute;
+            border-radius: 50%;
+            filter: blur(40px);
+            animation: orbPulse 4s ease-in-out infinite;
+        }
+
+        .energy-orb:nth-child(1) {
+            width: 300px;
+            height: 300px;
+            background: radial-gradient(circle, rgba(102, 126, 234, 0.4), transparent);
+            top: 15%;
+            left: 15%;
+            animation-delay: 0s;
+        }
+
+        .energy-orb:nth-child(2) {
+            width: 250px;
+            height: 250px;
+            background: radial-gradient(circle, rgba(118, 75, 162, 0.3), transparent);
+            top: 55%;
+            right: 20%;
+            animation-delay: 1.5s;
+        }
+
+        .energy-orb:nth-child(3) {
+            width: 200px;
+            height: 200px;
+            background: radial-gradient(circle, rgba(240, 147, 251, 0.35), transparent);
+            bottom: 20%;
+            left: 25%;
+            animation-delay: 3s;
+        }
+
+        @keyframes orbPulse {
+            0%, 100% {
+                transform: scale(1) translate(0, 0);
+                opacity: 0.6;
+            }
+            50% {
+                transform: scale(1.3) translate(20px, -20px);
+                opacity: 1;
+            }
+        }
+
+        /* Electric circuit lines */
+        .circuit-line {
+            position: absolute;
+            background: linear-gradient(90deg, transparent, rgba(124, 58, 237, 0.6), transparent);
+            box-shadow: 0 0 20px rgba(124, 58, 237, 0.8);
+            animation: electricFlow 3s linear infinite;
+        }
+
+        .circuit-line.horizontal {
+            height: 2px;
+            width: 200px;
+        }
+
+        .circuit-line.vertical {
+            width: 2px;
+            height: 200px;
+        }
+
+        .circuit-line:nth-child(4) {
+            top: 20%;
+            left: 10%;
+            animation-delay: 0s;
+        }
+
+        .circuit-line:nth-child(5) {
+            top: 45%;
+            right: 15%;
+            animation-delay: 1s;
+        }
+
+        .circuit-line:nth-child(6) {
+            bottom: 25%;
+            left: 30%;
+            animation-delay: 2s;
+        }
+
+        .circuit-line:nth-child(7) {
+            top: 35%;
+            right: 25%;
+            animation-delay: 0.5s;
+        }
+
+        .circuit-line:nth-child(8) {
+            bottom: 15%;
+            right: 10%;
+            animation-delay: 1.5s;
+        }
+
+        @keyframes electricFlow {
+            0% {
+                opacity: 0.3;
+                box-shadow: 0 0 10px rgba(124, 58, 237, 0.4);
+            }
+            50% {
+                opacity: 1;
+                box-shadow: 0 0 30px rgba(124, 58, 237, 1), 0 0 60px rgba(124, 58, 237, 0.6);
+            }
+            100% {
+                opacity: 0.3;
+                box-shadow: 0 0 10px rgba(124, 58, 237, 0.4);
+            }
+        }
+
+        /* Circuit nodes */
+        .circuit-node {
+            position: absolute;
+            width: 8px;
+            height: 8px;
+            background: rgba(240, 147, 251, 0.8);
+            border-radius: 50%;
+            box-shadow: 0 0 15px rgba(240, 147, 251, 1), 0 0 30px rgba(240, 147, 251, 0.6);
+            animation: nodePulse 2s ease-in-out infinite;
+        }
+
+        .circuit-node:nth-child(9) {
+            top: 25%;
+            left: 20%;
+            animation-delay: 0s;
+        }
+
+        .circuit-node:nth-child(10) {
+            top: 50%;
+            right: 30%;
+            animation-delay: 0.7s;
+        }
+
+        .circuit-node:nth-child(11) {
+            bottom: 30%;
+            left: 40%;
+            animation-delay: 1.4s;
+        }
+
+        .circuit-node:nth-child(12) {
+            top: 65%;
+            right: 15%;
+            animation-delay: 2.1s;
+        }
+
+        @keyframes nodePulse {
+            0%, 100% {
+                transform: scale(1);
+                opacity: 0.6;
+            }
+            50% {
+                transform: scale(2);
+                opacity: 1;
+            }
+        }
+
+        /* Floating particles */
+        .particle {
+            position: absolute;
+            width: 3px;
+            height: 3px;
+            background: rgba(124, 58, 237, 0.8);
+            border-radius: 50%;
+            animation: particleFloat 8s linear infinite;
+        }
+
+        .particle:nth-child(13) {
+            top: 10%;
+            left: 5%;
+            animation-delay: 0s;
+        }
+
+        .particle:nth-child(14) {
+            top: 30%;
+            left: 60%;
+            animation-delay: 2s;
+        }
+
+        .particle:nth-child(15) {
+            top: 70%;
+            left: 20%;
+            animation-delay: 4s;
+        }
+
+        .particle:nth-child(16) {
+            top: 50%;
+            right: 10%;
+            animation-delay: 6s;
+        }
+
+        @keyframes particleFloat {
+            0% {
+                transform: translateY(0) translateX(0);
+                opacity: 0;
+            }
+            10% {
+                opacity: 1;
+            }
+            90% {
+                opacity: 1;
+            }
+            100% {
+                transform: translateY(-100vh) translateX(50px);
+                opacity: 0;
+            }
+        }
+
+        .container {
+            max-width: 100%;
+            margin: 0 auto;
+            position: relative;
+            z-index: 1;
+        }
+
+        header {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 40px;
+            padding: 40px 40px 30px;
+            background: transparent;
+            position: relative;
+            overflow: hidden;
+        }
+
+        header::before {
+            content: '';
+            position: absolute;
+            width: 300px;
+            height: 300px;
+            background: radial-gradient(circle, rgba(124, 58, 237, 0.15), transparent 70%);
+            top: -100px;
+            right: -100px;
+            animation: glow 4s ease-in-out infinite;
+            pointer-events: none;
+        }
+
+        header::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 80%;
+            height: 1px;
+            background: linear-gradient(90deg, transparent, rgba(124, 58, 237, 0.3), transparent);
+            animation: softGlow 3s ease-in-out infinite;
+        }
+
+        @keyframes glow {
+            0%, 100% { opacity: 0.3; transform: scale(1); }
+            50% { opacity: 0.6; transform: scale(1.1); }
+        }
+
+        .header-content {
+            display: flex;
+            align-items: center;
+            gap: 40px;
+            max-width: 1200px;
+            position: relative;
+            z-index: 1;
+        }
+
+        .logo {
+            width: 140px;
+            height: auto;
+            filter: drop-shadow(0 8px 16px rgba(124, 58, 237, 0.4));
+            animation: slideInLeft 1s ease-out, floatLogo 3s ease-in-out 1s infinite;
+            flex-shrink: 0;
+        }
+
+        @keyframes slideInLeft {
+            from {
+                opacity: 0;
+                transform: translateX(-100px);
+            }
+            to {
+                opacity: 1;
+                transform: translateX(0);
+            }
+        }
+
+        @keyframes floatLogo {
+            0%, 100% { transform: translateY(0px); }
+            50% { transform: translateY(-10px); }
+        }
+
+        .text-content {
+            text-align: left;
+            animation: slideInRight 1s ease-out;
+        }
+
+        @keyframes slideInRight {
+            from {
+                opacity: 0;
+                transform: translateX(100px);
+            }
+            to {
+                opacity: 1;
+                transform: translateX(0);
+            }
+        }
+
+        h1 {
+            font-size: 3em;
+            margin-bottom: 20px;
+            font-weight: 700;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 50%, #f093fb 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            line-height: 1.2;
+            animation: fadeInUp 1s ease-out 0.3s both;
+        }
+
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .divider-artifact {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            margin: 20px 0;
+            animation: fadeIn 1s ease-out 0.6s both;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+
+        .divider-line {
+            height: 2px;
+            flex: 1;
+            background: linear-gradient(90deg, transparent, rgba(124, 58, 237, 0.5), transparent);
+        }
+
+        .pulse-icon {
+            width: 40px;
+            height: 40px;
+            animation: pulse 2s ease-in-out infinite;
+        }
+
+        @keyframes pulse {
+            0%, 100% {
+                transform: scale(1);
+                opacity: 1;
+            }
+            50% {
+                transform: scale(1.15);
+                opacity: 0.8;
+            }
+        }
+
+        .tagline {
+            font-size: 1.15em;
+            color: #a0a0a0;
+            line-height: 1.6;
+            animation: fadeInUp 1s ease-out 0.9s both;
+        }
+
+        @media (max-width: 968px) {
+            header {
+                padding: 40px 20px;
+            }
+
+            .header-content {
+                flex-direction: column;
+                text-align: center;
+                gap: 30px;
+            }
+
+            .text-content {
+                text-align: center;
+            }
+
+            .logo {
+                width: 120px;
+            }
+
+            h1 {
+                font-size: 2.2em;
+            }
+
+            .tagline {
+                font-size: 1em;
+            }
+        }
+
+        @media (max-width: 640px) {
+            h1 {
+                font-size: 1.8em;
+            }
+
+            .logo {
+                width: 100px;
+            }
+
+            .divider-artifact {
+                gap: 10px;
+            }
+
+            .pulse-icon {
+                width: 30px;
+                height: 30px;
+            }
+        }
+
+        .section-title-wrapper {
+            text-align: center;
+            margin: 40px 0 50px;
+            position: relative;
+            animation: fadeInUp 1s ease-out 1.2s both;
+        }
+
+        .section-title {
+            font-size: 2.8em;
+            font-weight: 700;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 50%, #f093fb 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            line-height: 1.2;
+            margin-bottom: 20px;
+            letter-spacing: -0.02em;
+        }
+
+        .section-subtitle {
+            font-size: 1em;
+            color: #a0a0a0;
+            max-width: 650px;
+            margin: 0 auto;
+            line-height: 1.7;
+        }
+
+        .section-divider {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 15px;
+            margin-top: 20px;
+        }
+
+        .section-divider-line {
+            width: 80px;
+            height: 2px;
+            background: linear-gradient(90deg, transparent, rgba(124, 58, 237, 0.6), transparent);
+        }
+
+        .section-icon {
+            width: 28px;
+            height: 28px;
+            animation: pulse 2s ease-in-out infinite;
+        }
+
+        .carousel-container {
+            position: relative;
+            padding: 40px 0 80px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 750px;
+        }
+
+        .carousel-wrapper {
+            position: relative;
+            width: 500px;
+            height: 700px;
+            perspective: 1000px;
+        }
+
+        .portfolio-card {
+            position: absolute;
+            width: 450px;
+            height: 650px;
+            background: linear-gradient(135deg, #1a1a1a 0%, #2a2a2a 100%);
+            border-radius: 24px;
+            padding: 40px;
+            border: 1px solid rgba(124, 58, 237, 0.3);
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+            cursor: pointer;
+            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.4);
+            overflow: hidden;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .portfolio-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background-image: 
+                linear-gradient(45deg, transparent 48%, rgba(124, 58, 237, 0.5) 49%, rgba(124, 58, 237, 0.5) 51%, transparent 52%),
+                linear-gradient(-45deg, transparent 48%, rgba(255, 255, 255, 0.5) 49%, rgba(255, 255, 255, 0.5) 51%, transparent 52%),
+                radial-gradient(circle at 20% 50%, rgba(124, 58, 237, 0.5) 0%, transparent 50%),
+                radial-gradient(circle at 80% 80%, rgba(255, 255, 255, 0.5) 0%, transparent 40%);
+            background-size: 60px 60px, 80px 80px, 200px 200px, 150px 150px;
+            background-position: 0 0, 0 0, 0 0, 100% 100%;
+            opacity: 0.15;
+            pointer-events: none;
+            border-radius: 24px;
+        }
+
+        .portfolio-card::after {
+            content: '';
+            position: absolute;
+            top: 10%;
+            right: 10%;
+            width: 40px;
+            height: 40px;
+            border: 2px solid rgba(124, 58, 237, 0.5);
+            border-radius: 50%;
+            opacity: 0.3;
+            pointer-events: none;
+        }
+
+        /* Tech symbols overlay */
+        .card-tech-pattern {
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            pointer-events: none;
+            opacity: 0.5;
+        }
+
+        .tech-symbol {
+            position: absolute;
+            color: rgba(124, 58, 237, 0.5);
+            font-family: monospace;
+            font-size: 12px;
+            font-weight: 300;
+        }
+
+        /* Stacking effect */
+        .portfolio-card:nth-child(1) {
+            z-index: 10;
+            transform: translateX(0) translateY(0) rotate(0deg);
+        }
+
+        .portfolio-card:nth-child(2) {
+            z-index: 9;
+            transform: translateX(20px) translateY(10px) rotate(2deg);
+            opacity: 0.95;
+        }
+
+        .portfolio-card:nth-child(3) {
+            z-index: 8;
+            transform: translateX(40px) translateY(20px) rotate(4deg);
+            opacity: 0.9;
+        }
+
+        .portfolio-card:nth-child(4) {
+            z-index: 7;
+            transform: translateX(60px) translateY(30px) rotate(6deg);
+            opacity: 0.85;
+        }
+
+        .portfolio-card:nth-child(n+5) {
+            z-index: 6;
+            transform: translateX(80px) translateY(40px) rotate(8deg);
+            opacity: 0.8;
+        }
+
+        /* Animation for card flipping off - faster */
+        .portfolio-card.flipping {
+            animation: flipOff 0.4s cubic-bezier(0.4, 0, 0.2, 1) forwards;
+            z-index: 100 !important;
+        }
+
+        @keyframes flipOff {
+            0% {
+                transform: translateX(0) translateY(0) rotate(0deg);
+                opacity: 1;
+            }
+            50% {
+                transform: translateX(-150px) translateY(-80px) rotate(-20deg) scale(0.9);
+                opacity: 0.6;
+            }
+            100% {
+                transform: translateX(-350px) translateY(150px) rotate(-40deg) scale(0.5);
+                opacity: 0;
+            }
+        }
+
+        /* Reset animation for card going to back */
+        .portfolio-card.resetting {
+            animation: none;
+            transition: none;
+            opacity: 0;
+            transform: translateX(80px) translateY(40px) rotate(8deg);
+        }
+
+        .card-icon {
+            width: 70px;
+            height: 70px;
+            margin-bottom: 20px;
+            position: relative;
+            z-index: 1;
+            flex-shrink: 0;
+        }
+
+        .card-title {
+            font-size: 1.5em;
+            margin-bottom: 14px;
+            font-weight: 600;
+            color: #ffffff;
+            position: relative;
+            z-index: 1;
+            flex-shrink: 0;
+        }
+
+        .card-description {
+            color: #b0b0b0;
+            margin-bottom: 20px;
+            line-height: 1.6;
+            font-size: 0.9em;
+            position: relative;
+            z-index: 1;
+            height: 85px;
+            overflow: hidden;
+            flex-shrink: 0;
+        }
+
+        .card-content {
+            margin-bottom: 20px;
+            position: relative;
+            z-index: 1;
+            flex-grow: 1;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .qr-container {
+            background: rgba(255, 255, 255, 0.95);
+            padding: 15px;
+            border-radius: 16px;
+            display: inline-block;
+            margin-bottom: 12px;
+        }
+
+        .qr-container img {
+            display: block;
+            width: 140px;
+            height: 140px;
+        }
+
+        .qr-label {
+            font-size: 0.85em;
+            color: #888;
+            text-align: center;
+            margin-top: 8px;
+        }
+
+        .card-button {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            padding: 12px 24px;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            text-decoration: none;
+            border-radius: 12px;
+            transition: all 0.3s ease;
+            font-weight: 500;
+            font-size: 0.9em;
+            border: none;
+            cursor: pointer;
+            position: relative;
+            z-index: 1;
+            flex-shrink: 0;
+        }
+
+        .card-button:hover {
+            transform: translateX(4px);
+            box-shadow: 0 8px 24px rgba(124, 58, 237, 0.4);
+        }
+
+        .navigation-hint {
+            text-align: center;
+            margin-top: 35px;
+            margin-bottom: 35px;
+            color: #999;
+            font-size: 1em;
+            animation: pulseHint 2s ease-in-out infinite;
+            position: relative;
+            z-index: 1;
+        }
+
+        @keyframes pulseHint {
+            0%, 100% { 
+                opacity: 0.7;
+                transform: translateY(0);
+            }
+            50% { 
+                opacity: 1;
+                transform: translateY(-4px);
+            }
+        }
+
+        .carousel-container {
+            position: relative;
+            padding: 0 0 40px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            min-height: 750px;
+        }
+
+        @media (max-width: 768px) {
+            .carousel-wrapper {
+                width: 90vw;
+                max-width: 380px;
+                height: 650px;
+            }
+
+            .portfolio-card {
+                width: 90vw;
+                max-width: 380px;
+                height: 600px;
+                padding: 30px;
+            }
+
+            .portfolio-card:nth-child(2) {
+                transform: translateX(15px) translateY(8px) rotate(2deg);
+            }
+
+            .portfolio-card:nth-child(3) {
+                transform: translateX(30px) translateY(16px) rotate(4deg);
+            }
+
+            .portfolio-card:nth-child(4) {
+                transform: translateX(45px) translateY(24px) rotate(6deg);
+            }
+
+            .portfolio-card:nth-child(n+5) {
+                transform: translateX(60px) translateY(32px) rotate(8deg);
+            }
+
+            .card-icon {
+                width: 60px;
+                height: 60px;
+            }
+
+            .card-title {
+                font-size: 1.3em;
+            }
+
+            .qr-container img {
+                width: 120px;
+                height: 120px;
+            }
+        }
+
+        footer {
+            text-align: center;
+            padding: 60px 20px 60px;
+            background: transparent;
+            margin-top: 40px;
+            position: relative;
+            z-index: 1;
+        }
+
+        footer::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 80%;
+            height: 1px;
+            background: linear-gradient(90deg, transparent, rgba(124, 58, 237, 0.3), transparent);
+            animation: softGlow 3s ease-in-out infinite;
+        }
+
+        @keyframes softGlow {
+            0%, 100% {
+                opacity: 0.3;
+                box-shadow: 0 0 10px rgba(124, 58, 237, 0.2);
+            }
+            50% {
+                opacity: 0.6;
+                box-shadow: 0 0 20px rgba(124, 58, 237, 0.4);
+            }
+        }
+
+        .footer-content {
+            max-width: 800px;
+            margin: 0 auto;
+            animation: fadeInUp 1s ease-out;
+        }
+
+        .footer-title {
+            font-size: 2em;
+            font-weight: 700;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 50%, #f093fb 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            margin-bottom: 16px;
+            letter-spacing: -0.01em;
+        }
+
+        .footer-subtitle {
+            font-size: 1.1em;
+            color: #a0a0a0;
+            margin-bottom: 12px;
+            line-height: 1.6;
+        }
+
+        .footer-tagline {
+            font-size: 0.95em;
+            color: #777;
+            line-height: 1.7;
+            margin-top: 20px;
+        }
+
+        .contact-info {
+            margin-top: 30px;
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+            align-items: center;
+        }
+
+        .contact-item {
+            color: #a0a0a0;
+            text-decoration: none;
+            font-size: 1em;
+            transition: all 0.3s ease;
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .contact-item:hover {
+            color: #f093fb;
+            transform: translateX(4px);
+        }
+
+        .contact-item svg {
+            width: 18px;
+            height: 18px;
+        }
+
+        .social-links {
+            margin-top: 24px;
+            display: flex;
+            gap: 20px;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+
+        .social-link {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            padding: 10px 20px;
+            background: rgba(124, 58, 237, 0.1);
+            border: 1px solid rgba(124, 58, 237, 0.3);
+            border-radius: 8px;
+            color: #a0a0a0;
+            text-decoration: none;
+            font-size: 0.9em;
+            transition: all 0.3s ease;
+        }
+
+        .social-link:hover {
+            background: rgba(124, 58, 237, 0.2);
+            border-color: rgba(124, 58, 237, 0.5);
+            color: #f093fb;
+            transform: translateY(-2px);
+            box-shadow: 0 4px 12px rgba(124, 58, 237, 0.3);
+        }
+
+        .social-link svg {
+            width: 20px;
+            height: 20px;
+        }
+
+        .footer-divider {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 15px;
+            margin: 24px 0;
+        }
+
+        .footer-divider-line {
+            width: 60px;
+            height: 1px;
+            background: linear-gradient(90deg, transparent, rgba(124, 58, 237, 0.5), transparent);
+        }
+
+        .footer-icon {
+            width: 24px;
+            height: 24px;
+            animation: pulse 2s ease-in-out infinite;
+        }
+
+        @media (max-width: 768px) {
+            .footer-title {
+                font-size: 1.6em;
+            }
+
+            .footer-subtitle {
+                font-size: 1em;
+            }
+        }
+
+
+    </style>
+</head>
+<body>
+    <!-- Animated circuit background -->
+    <div class="circuit-overlay">
+        <!-- Energy orbs -->
+        <div class="energy-orb"></div>
+        <div class="energy-orb"></div>
+        <div class="energy-orb"></div>
+        
+        <!-- Circuit lines -->
+        <div class="circuit-line horizontal"></div>
+        <div class="circuit-line horizontal"></div>
+        <div class="circuit-line vertical"></div>
+        <div class="circuit-line horizontal"></div>
+        <div class="circuit-line vertical"></div>
+        
+        <!-- Circuit nodes -->
+        <div class="circuit-node"></div>
+        <div class="circuit-node"></div>
+        <div class="circuit-node"></div>
+        <div class="circuit-node"></div>
+        
+        <!-- Floating particles -->
+        <div class="particle"></div>
+        <div class="particle"></div>
+        <div class="particle"></div>
+        <div class="particle"></div>
+    </div>
+
+    <div class="container">
+        <header>
+            <div class="header-content">
+                <img src="logo.png" alt="Destery1Kenobi Logo" class="logo">
+                <div class="text-content">
+                    <h1>Destery1Kenobi LLC</h1>
+                    <div class="divider-artifact">
+                        <div class="divider-line"></div>
+                        <svg class="pulse-icon" viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <circle cx="20" cy="20" r="18" stroke="url(#pulseGrad)" stroke-width="2" opacity="0.6"/>
+                            <circle cx="20" cy="20" r="12" stroke="url(#pulseGrad)" stroke-width="2" opacity="0.8"/>
+                            <circle cx="20" cy="20" r="6" fill="url(#pulseGrad)"/>
+                            <defs>
+                                <linearGradient id="pulseGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+                                    <stop offset="0%" style="stop-color:#667eea;stop-opacity:1" />
+                                    <stop offset="50%" style="stop-color:#764ba2;stop-opacity:1" />
+                                    <stop offset="100%" style="stop-color:#f093fb;stop-opacity:1" />
+                                </linearGradient>
+                            </defs>
+                        </svg>
+                        <div class="divider-line"></div>
+                    </div>
+                    <p class="tagline">Immersive Learning Experiences | AR/VR/MR | Game Development | Learning Technology Consulting</p>
+                </div>
+            </div>
+        </header>
+
+        <div class="section-title-wrapper">
+            <h2 class="section-title">Learning Transformation</h2>
+            <p class="section-subtitle">Pioneering immersive experiences through AR/VR, interactive simulations, and AI-powered solutions that revolutionize how people learn and engage.</p>
+            <div class="section-divider">
+                <div class="section-divider-line"></div>
+                <svg class="section-icon" viewBox="0 0 30 30" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <polygon points="15,2 22,10 22,18 15,28 8,18 8,10" stroke="url(#sectionGrad)" stroke-width="2" fill="none"/>
+                    <circle cx="15" cy="15" r="4" fill="url(#sectionGrad)"/>
+                    <defs>
+                        <linearGradient id="sectionGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+                            <stop offset="0%" style="stop-color:#667eea;stop-opacity:1" />
+                            <stop offset="50%" style="stop-color:#764ba2;stop-opacity:1" />
+                            <stop offset="100%" style="stop-color:#f093fb;stop-opacity:1" />
+                        </linearGradient>
+                    </defs>
+                </svg>
+                <div class="section-divider-line"></div>
+            </div>
+        </div>
+
+        <p class="navigation-hint">👆 Click the top card to see the next project</p>
+
+        <div class="carousel-container">
+            <div class="carousel-wrapper" id="carousel">
+                
+                <!-- 360 VR Store Tour -->
+                <div class="portfolio-card">
+                    <svg class="card-icon" viewBox="0 0 80 80" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <circle cx="40" cy="40" r="38" stroke="url(#grad1)" stroke-width="2"/>
+                        <circle cx="40" cy="40" r="30" stroke="url(#grad1)" stroke-width="1.5" opacity="0.5"/>
+                        <circle cx="40" cy="40" r="22" stroke="url(#grad1)" stroke-width="1" opacity="0.3"/>
+                        <path d="M40 10 L40 20 M40 60 L40 70 M10 40 L20 40 M60 40 L70 40" stroke="url(#grad1)" stroke-width="2" stroke-linecap="round"/>
+                        <path d="M55 25 L48 32 M25 25 L32 32 M25 55 L32 48 M55 55 L48 48" stroke="url(#grad1)" stroke-width="2" stroke-linecap="round"/>
+                        <defs>
+                            <linearGradient id="grad1" x1="0%" y1="0%" x2="100%" y2="100%">
+                                <stop offset="0%" style="stop-color:#667eea;stop-opacity:1" />
+                                <stop offset="100%" style="stop-color:#764ba2;stop-opacity:1" />
+                            </linearGradient>
+                        </defs>
+                    </svg>
+                    <h3 class="card-title">360° VR Retail Store Tour</h3>
+                    <p class="card-description">Immersive 360-degree virtual reality tour of a retail environment. Captured in 360 media and built in Zapworks Designer. Accessible via browsers, mobile devices, and VR headsets.</p>
+                    <div class="card-content">
+                        <div class="qr-container">
+                            <img src="store-tour-qr.png" alt="Scan to explore VR tour">
+                        </div>
+                        <p class="qr-label">📱 Scan to explore in VR</p>
+                    </div>
+                    <a href="https://webxr.run/zdz2apeZ55k7N" target="_blank" class="card-button">
+                        Launch Experience →
+                    </a>
+                </div>
+
+                <!-- AR Face Filter -->
+                <div class="portfolio-card">
+                    <svg class="card-icon" viewBox="0 0 80 80" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <rect x="10" y="20" width="60" height="45" rx="8" stroke="url(#grad2)" stroke-width="2"/>
+                        <circle cx="30" cy="35" r="6" fill="url(#grad2)"/>
+                        <circle cx="50" cy="35" r="6" fill="url(#grad2)"/>
+                        <path d="M28 50 Q40 58 52 50" stroke="url(#grad2)" stroke-width="2" stroke-linecap="round" fill="none"/>
+                        <path d="M15 15 L10 10 M25 15 L20 10 M55 15 L60 10 M65 15 L70 10" stroke="url(#grad2)" stroke-width="2" stroke-linecap="round"/>
+                        <defs>
+                            <linearGradient id="grad2" x1="0%" y1="0%" x2="100%" y2="100%">
+                                <stop offset="0%" style="stop-color:#f093fb;stop-opacity:1" />
+                                <stop offset="100%" style="stop-color:#f5576c;stop-opacity:1" />
+                            </linearGradient>
+                        </defs>
+                    </svg>
+                    <h3 class="card-title">AR Face Filter Selfie Cam</h3>
+                    <p class="card-description">Interactive AR face filter experience built in Zapworks Designer. Real-time camera effects with augmented reality overlays. Best experienced on mobile devices.</p>
+                    <div class="card-content">
+                        <div class="qr-container">
+                            <img src="face-filter-qr.png" alt="Scan for AR filter">
+                        </div>
+                        <p class="qr-label">📱 Scan to try face filter</p>
+                    </div>
+                    <a href="https://webxr.run/P12gbVDZo663e" target="_blank" class="card-button">
+                        Launch AR Filter →
+                    </a>
+                </div>
+
+                <!-- Mars Survival Card Game -->
+                <div class="portfolio-card">
+                    <svg class="card-icon" viewBox="0 0 80 80" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <rect x="15" y="10" width="35" height="50" rx="4" fill="url(#grad3)" opacity="0.3"/>
+                        <rect x="25" y="20" width="35" height="50" rx="4" stroke="url(#grad3)" stroke-width="2"/>
+                        <circle cx="42.5" cy="35" r="8" stroke="url(#grad3)" stroke-width="2"/>
+                        <path d="M30 50 L55 50 M30 56 L55 56 M30 62 L50 62" stroke="url(#grad3)" stroke-width="2" stroke-linecap="round"/>
+                        <defs>
+                            <linearGradient id="grad3" x1="0%" y1="0%" x2="100%" y2="100%">
+                                <stop offset="0%" style="stop-color:#fa709a;stop-opacity:1" />
+                                <stop offset="100%" style="stop-color:#fee140;stop-opacity:1" />
+                            </linearGradient>
+                        </defs>
+                    </svg>
+                    <h3 class="card-title">Mars Survival Card Game</h3>
+                    <p class="card-description">Interactive card game built in Articulate Storyline where learners must make strategic decisions to survive on Mars. Video demonstration of gameplay mechanics.</p>
+                    <a href="https://drive.google.com/file/d/1lG2d_doCgTgn-saeUxTic4f3jQHhTNaE/view?usp=sharing" target="_blank" class="card-button">
+                        Watch Demo Video →
+                    </a>
+                </div>
+
+                <!-- VR AI Avatar -->
+                <div class="portfolio-card">
+                    <svg class="card-icon" viewBox="0 0 80 80" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <circle cx="40" cy="35" r="15" stroke="url(#grad4)" stroke-width="2"/>
+                        <path d="M25 35 L28 38 M52 35 L49 38" stroke="url(#grad4)" stroke-width="2" stroke-linecap="round"/>
+                        <path d="M32 42 Q40 46 48 42" stroke="url(#grad4)" stroke-width="2" stroke-linecap="round" fill="none"/>
+                        <path d="M20 55 Q40 65 60 55" stroke="url(#grad4)" stroke-width="2" stroke-linecap="round" fill="none"/>
+                        <circle cx="33" cy="32" r="2" fill="url(#grad4)"/>
+                        <circle cx="47" cy="32" r="2" fill="url(#grad4)"/>
+                        <path d="M15 28 Q12 25 15 22 M65 28 Q68 25 65 22" stroke="url(#grad4)" stroke-width="2" stroke-linecap="round"/>
+                        <defs>
+                            <linearGradient id="grad4" x1="0%" y1="0%" x2="100%" y2="100%">
+                                <stop offset="0%" style="stop-color:#4facfe;stop-opacity:1" />
+                                <stop offset="100%" style="stop-color:#00f2fe;stop-opacity:1" />
+                            </linearGradient>
+                        </defs>
+                    </svg>
+                    <h3 class="card-title">VR AI Avatar Experience</h3>
+                    <p class="card-description">Immersive VR project featuring an AI-powered interactive avatar with natural language processing. The avatar listens and responds in real-time, creating dynamic conversational experiences.</p>
+                    <a href="https://drive.google.com/file/d/1KikSQds2A2PfhpeVEW6fwmtn-eTLH5oj/view?usp=sharing" target="_blank" class="card-button">
+                        Watch Demo Video →
+                    </a>
+                </div>
+
+                <!-- VR Fire Safety -->
+                <div class="portfolio-card">
+                    <svg class="card-icon" viewBox="0 0 80 80" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M40 15 Q35 25 35 35 Q35 45 40 50 Q45 45 45 35 Q45 25 40 15Z" fill="url(#grad5)" opacity="0.6"/>
+                        <path d="M40 20 Q37 27 37 35 Q37 42 40 46 Q43 42 43 35 Q43 27 40 20Z" fill="url(#grad5)"/>
+                        <rect x="25" y="50" width="30" height="20" rx="3" stroke="url(#grad5)" stroke-width="2"/>
+                        <path d="M32 55 L48 55 M32 60 L48 60 M32 65 L48 65" stroke="url(#grad5)" stroke-width="1.5" stroke-linecap="round"/>
+                        <defs>
+                            <linearGradient id="grad5" x1="0%" y1="0%" x2="100%" y2="100%">
+                                <stop offset="0%" style="stop-color:#ff9a56;stop-opacity:1" />
+                                <stop offset="100%" style="stop-color:#ff6a88;stop-opacity:1" />
+                            </linearGradient>
+                        </defs>
+                    </svg>
+                    <h3 class="card-title">VR Fire Safety Training</h3>
+                    <p class="card-description">Immersive CGI warehouse environment teaching the PASS process for fire extinguisher use. Learners practice hands-on fire safety skills in a realistic virtual setting.</p>
+                    <a href="https://drive.google.com/file/d/1uUjujP9Hgx-dJH-ypjS0mjkUDe2EJ3RC/view?usp=sharing" target="_blank" class="card-button">
+                        Watch Demo Video →
+                    </a>
+                </div>
+
+                <!-- Adventures of Hoppy -->
+                <div class="portfolio-card">
+                    <svg class="card-icon" viewBox="0 0 80 80" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <!-- Frog body -->
+                        <ellipse cx="40" cy="50" rx="20" ry="16" fill="url(#grad6)"/>
+                        <!-- Frog head -->
+                        <ellipse cx="40" cy="35" rx="18" ry="15" fill="url(#grad6)"/>
+                        <!-- Eyes on top of head -->
+                        <ellipse cx="33" cy="28" rx="6" ry="8" fill="url(#grad6)" opacity="0.9"/>
+                        <ellipse cx="47" cy="28" rx="6" ry="8" fill="url(#grad6)" opacity="0.9"/>
+                        <circle cx="33" cy="26" r="3" fill="#000"/>
+                        <circle cx="47" cy="26" r="3" fill="#000"/>
+                        <circle cx="34" cy="25" r="1.5" fill="#fff"/>
+                        <circle cx="48" cy="25" r="1.5" fill="#fff"/>
+                        <!-- Mouth -->
+                        <path d="M35 38 Q40 42 45 38" stroke="#2d5016" stroke-width="2" stroke-linecap="round" fill="none"/>
+                        <!-- Front legs -->
+                        <ellipse cx="28" cy="55" rx="4" ry="8" fill="url(#grad6)"/>
+                        <ellipse cx="52" cy="55" rx="4" ry="8" fill="url(#grad6)"/>
+                        <!-- Back legs (bent) -->
+                        <path d="M25 52 Q18 50 15 55 Q13 58 16 60" stroke="url(#grad6)" stroke-width="5" fill="none" stroke-linecap="round"/>
+                        <path d="M55 52 Q62 50 65 55 Q67 58 64 60" stroke="url(#grad6)" stroke-width="5" fill="none" stroke-linecap="round"/>
+                        <!-- Webbed feet -->
+                        <circle cx="15" cy="61" r="3" fill="url(#grad6)" opacity="0.7"/>
+                        <circle cx="65" cy="61" r="3" fill="url(#grad6)" opacity="0.7"/>
+                        <defs>
+                            <linearGradient id="grad6" x1="0%" y1="0%" x2="100%" y2="100%">
+                                <stop offset="0%" style="stop-color:#a8e063;stop-opacity:1" />
+                                <stop offset="100%" style="stop-color:#56ab2f;stop-opacity:1" />
+                            </linearGradient>
+                        </defs>
+                    </svg>
+                    <h3 class="card-title">Adventures of Hoppy</h3>
+                    <p class="card-description">An engaging browser-based game featuring interactive gameplay and gamified learning mechanics. Jump, explore, and learn in this fun adventure.</p>
+                    <a href="https://destery1kenobi.github.io/Adventures_Of_Hoppy/" target="_blank" class="card-button">
+                        Play Game →
+                    </a>
+                </div>
+
+                <!-- Assessment Invaders -->
+                <div class="portfolio-card">
+                    <svg class="card-icon" viewBox="0 0 80 80" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <!-- Alien invaders -->
+                        <path d="M25 25 L30 20 L35 25 L33 28 L37 28 L37 32 L27 32 L27 28 L31 28 Z" fill="url(#grad7)"/>
+                        <path d="M45 25 L50 20 L55 25 L53 28 L57 28 L57 32 L47 32 L47 28 L51 28 Z" fill="url(#grad7)" opacity="0.7"/>
+                        <path d="M35 40 L40 35 L45 40 L43 43 L47 43 L47 47 L37 47 L37 43 L41 43 Z" fill="url(#grad7)" opacity="0.5"/>
+                        <!-- Spaceship -->
+                        <ellipse cx="40" cy="62" rx="12" ry="5" fill="url(#grad7)" opacity="0.3"/>
+                        <path d="M35 62 L40 55 L45 62 Z" fill="url(#grad7)"/>
+                        <circle cx="40" cy="58" r="3" fill="#21d4fd" opacity="0.8"/>
+                        <rect x="38" cy="62" width="4" height="6" fill="url(#grad7)"/>
+                        <!-- Laser shots -->
+                        <rect x="20" y="50" width="2" height="6" fill="#ff0080" opacity="0.8"/>
+                        <rect x="38" y="48" width="2" height="5" fill="#ff0080" opacity="0.6"/>
+                        <rect x="58" y="52" width="2" height="7" fill="#ff0080" opacity="0.7"/>
+                        <defs>
+                            <linearGradient id="grad7" x1="0%" y1="0%" x2="100%" y2="100%">
+                                <stop offset="0%" style="stop-color:#b721ff;stop-opacity:1" />
+                                <stop offset="100%" style="stop-color:#21d4fd;stop-opacity:1" />
+                            </linearGradient>
+                        </defs>
+                    </svg>
+                    <h3 class="card-title">Assessment Invaders</h3>
+                    <p class="card-description">Space Invaders-style educational game that transforms assessment into an engaging interactive experience. Shoot down questions and level up your knowledge!</p>
+                    <a href="https://destery1kenobi.github.io/Assessment-Invaders/" target="_blank" class="card-button">
+                        Play Game →
+                    </a>
+                </div>
+
+                <!-- Airline Game -->
+                <div class="portfolio-card">
+                    <svg class="card-icon" viewBox="0 0 80 80" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M20 40 L35 35 L35 28 L40 25 L45 28 L45 35 L60 40 L58 48 L45 44 L45 52 L50 56 L48 60 L40 58 L32 60 L30 56 L35 52 L35 44 L22 48 Z" fill="url(#grad8)"/>
+                        <circle cx="40" cy="25" r="3" fill="url(#grad8)"/>
+                        <circle cx="25" cy="30" r="4" fill="#FFD700" opacity="0.8"/>
+                        <circle cx="55" cy="35" r="4" fill="#FFD700" opacity="0.8"/>
+                        <path d="M60 25 L65 25 L67 27 L65 29 L60 29 Z" fill="#00D4FF" opacity="0.6"/>
+                        <defs>
+                            <linearGradient id="grad8" x1="0%" y1="0%" x2="100%" y2="100%">
+                                <stop offset="0%" style="stop-color:#667eea;stop-opacity:1" />
+                                <stop offset="100%" style="stop-color:#764ba2;stop-opacity:1" />
+                            </linearGradient>
+                        </defs>
+                    </svg>
+                    <h3 class="card-title">Airline Adventure Game</h3>
+                    <p class="card-description">Fun browser-based flying game where you pilot different aircraft across multiple levels, collecting coins and diamonds to advance. Choose your plane and soar through the skies!</p>
+                    <a href="https://destery1kenobi.github.io/Airline/" target="_blank" class="card-button">
+                        Play Game →
+                    </a>
+                </div>
+
+            </div>
+        </div>
+
+        <footer>
+            <div class="footer-content">
+                <h3 class="footer-title">Destery1Kenobi LLC</h3>
+                <div class="footer-divider">
+                    <div class="footer-divider-line"></div>
+                    <svg class="footer-icon" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <circle cx="12" cy="12" r="10" stroke="url(#footerGrad)" stroke-width="2"/>
+                        <circle cx="12" cy="12" r="4" fill="url(#footerGrad)"/>
+                        <defs>
+                            <linearGradient id="footerGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+                                <stop offset="0%" style="stop-color:#667eea;stop-opacity:1" />
+                                <stop offset="50%" style="stop-color:#764ba2;stop-opacity:1" />
+                                <stop offset="100%" style="stop-color:#f093fb;stop-opacity:1" />
+                            </linearGradient>
+                        </defs>
+                    </svg>
+                    <div class="footer-divider-line"></div>
+                </div>
+                <p class="footer-subtitle">Learning Technology Consultant | Conference Speaker | XR Innovator</p>
+                <p class="footer-tagline">Specializing in AR/VR/MR, AI Integration, and Gamified Learning Experiences</p>
+                
+                <div class="contact-info">
+                    <a href="mailto:destery@destery1kenobi.com" class="contact-item">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <path d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"/>
+                        </svg>
+                        destery@destery1kenobi.com
+                    </a>
+                    <a href="https://www.destery1kenobi.com" target="_blank" class="contact-item">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <circle cx="12" cy="12" r="10"/>
+                            <path d="M2 12h20M12 2a15.3 15.3 0 014 10 15.3 15.3 0 01-4 10 15.3 15.3 0 01-4-10 15.3 15.3 0 014-10z"/>
+                        </svg>
+                        www.destery1kenobi.com
+                    </a>
+                </div>
+
+                <div class="social-links">
+                    <a href="https://www.linkedin.com/in/desteryhildenbrand/" target="_blank" class="social-link">
+                        <svg viewBox="0 0 24 24" fill="currentColor">
+                            <path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/>
+                        </svg>
+                        LinkedIn
+                    </a>
+                    <a href="https://bsky.app/profile/destery1kenobi.bsky.social" target="_blank" class="social-link">
+                        <svg viewBox="0 0 24 24" fill="currentColor">
+                            <path d="M12 10.5c-2.5-2.5-5.5-4.5-7-3.5s-1 4 0 6 3.5 3 6 3 4.5-1 6-3 1.5-5 0-6-4.5 1-5 3.5z"/>
+                            <path d="M12 13.5c2.5 2.5 5.5 4.5 7 3.5s1-4 0-6-3.5-3-6-3-4.5 1-6 3-1.5 5 0 6 4.5-1 5-3.5z"/>
+                        </svg>
+                        Bluesky
+                    </a>
+                    <a href="https://destery1kenobi-outfitters-shop.fourthwall.com" target="_blank" class="social-link">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <rect x="3" y="3" width="7" height="7"/>
+                            <rect x="14" y="3" width="7" height="7"/>
+                            <rect x="3" y="14" width="7" height="7"/>
+                            <rect x="14" y="14" width="7" height="7"/>
+                        </svg>
+                        4th Wall Shop
+                    </a>
+                </div>
+            </div>
+        </footer>
+    </div>
+
+    <script>
+        let isAnimating = false;
+
+        // Function to get the current top card
+        function getTopCard() {
+            const wrapper = document.querySelector('.carousel-wrapper');
+            return wrapper.children[0];
+        }
+
+        // Add click handler to the wrapper
+        document.querySelector('.carousel-wrapper').addEventListener('click', (e) => {
+            // Don't flip if clicking on a link or button
+            if (e.target.tagName === 'A' || e.target.closest('a') || e.target.closest('.card-button')) {
+                return;
+            }
+            
+            // Don't flip if already animating
+            if (isAnimating) {
+                return;
+            }
+            
+            flipCard();
+        });
+
+        function flipCard() {
+            isAnimating = true;
+            const wrapper = document.querySelector('.carousel-wrapper');
+            const topCard = wrapper.children[0];
+            
+            // Add flipping animation
+            topCard.classList.add('flipping');
+            
+            // After animation completes, move card to bottom
+            setTimeout(() => {
+                topCard.classList.remove('flipping');
+                topCard.classList.add('resetting');
+                
+                // Move to end of parent
+                wrapper.appendChild(topCard);
+                
+                // Force reflow
+                void topCard.offsetWidth;
+                
+                // Remove reset class and allow next click immediately
+                requestAnimationFrame(() => {
+                    topCard.classList.remove('resetting');
+                    isAnimating = false;
+                });
+            }, 400);
+        }
+    </script>
+</body>
+</html>
