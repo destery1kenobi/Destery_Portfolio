@@ -1104,6 +1104,179 @@
             animation: easterEggPulse 2s ease-in-out infinite;
         }
 
+        /* Speaking Calendar Button */
+        .calendar-button {
+            position: fixed;
+            bottom: 100px;
+            right: 30px;
+            width: 60px;
+            height: 60px;
+            background: linear-gradient(135deg, #f093fb 0%, #667eea 100%);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            z-index: 1000;
+            box-shadow: 0 8px 24px rgba(240, 147, 251, 0.4);
+            transition: all 0.3s ease;
+            animation: calendarPulse 2s ease-in-out infinite 0.5s;
+        }
+
+        .calendar-button:hover {
+            transform: scale(1.1);
+            box-shadow: 0 12px 32px rgba(240, 147, 251, 0.6);
+        }
+
+        .calendar-button svg {
+            width: 30px;
+            height: 30px;
+            fill: white;
+        }
+
+        @keyframes calendarPulse {
+            0%, 100% {
+                transform: scale(1);
+                box-shadow: 0 8px 24px rgba(240, 147, 251, 0.4);
+            }
+            50% {
+                transform: scale(1.05);
+                box-shadow: 0 12px 32px rgba(240, 147, 251, 0.6);
+            }
+        }
+
+        /* Calendar Modal */
+        .calendar-overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: rgba(0, 0, 0, 0.95);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            z-index: 9998;
+            opacity: 0;
+            visibility: hidden;
+            transition: opacity 0.4s ease, visibility 0.4s ease;
+        }
+
+        .calendar-overlay.active {
+            opacity: 1;
+            visibility: visible;
+        }
+
+        .calendar-container {
+            position: relative;
+            max-width: 700px;
+            width: 90%;
+            background: linear-gradient(135deg, #1a1a1a 0%, #2a2a2a 100%);
+            border-radius: 24px;
+            padding: 40px;
+            border: 1px solid rgba(124, 58, 237, 0.3);
+            transform: scale(0.9);
+            transition: transform 0.4s ease;
+            max-height: 80vh;
+            overflow-y: auto;
+        }
+
+        .calendar-overlay.active .calendar-container {
+            transform: scale(1);
+        }
+
+        .calendar-header {
+            text-align: center;
+            margin-bottom: 30px;
+        }
+
+        .calendar-title {
+            font-size: 2em;
+            font-weight: 700;
+            background: linear-gradient(135deg, #f093fb 0%, #667eea 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            margin-bottom: 10px;
+        }
+
+        .calendar-subtitle {
+            color: #a0a0a0;
+            font-size: 1em;
+        }
+
+        .speaking-event {
+            background: rgba(255, 255, 255, 0.05);
+            border: 1px solid rgba(124, 58, 237, 0.3);
+            border-radius: 16px;
+            padding: 24px;
+            margin-bottom: 20px;
+            transition: all 0.3s ease;
+        }
+
+        .speaking-event:hover {
+            background: rgba(255, 255, 255, 0.08);
+            border-color: rgba(124, 58, 237, 0.5);
+            transform: translateX(4px);
+        }
+
+        .event-date {
+            display: inline-block;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 6px 16px;
+            border-radius: 8px;
+            font-size: 0.9em;
+            font-weight: 600;
+            margin-bottom: 12px;
+        }
+
+        .event-name {
+            font-size: 1.3em;
+            font-weight: 600;
+            color: #ffffff;
+            margin-bottom: 8px;
+        }
+
+        .event-location {
+            color: #a0a0a0;
+            font-size: 0.95em;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            margin-bottom: 12px;
+        }
+
+        .event-description {
+            color: #888;
+            font-size: 0.9em;
+            line-height: 1.6;
+        }
+
+        .close-calendar {
+            position: absolute;
+            top: 20px;
+            right: 20px;
+            background: rgba(255, 255, 255, 0.1);
+            border: 2px solid rgba(255, 255, 255, 0.3);
+            color: white;
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            font-size: 24px;
+            transition: all 0.3s ease;
+        }
+
+        .close-calendar:hover {
+            background: rgba(255, 255, 255, 0.2);
+            border-color: rgba(255, 255, 255, 0.5);
+            transform: rotate(90deg);
+        }
+
         .easter-egg-button:hover {
             transform: scale(1.1);
             box-shadow: 0 12px 32px rgba(124, 58, 237, 0.6);
@@ -1580,6 +1753,54 @@
         </footer>
     </div>
 
+    <!-- Speaking Calendar Button -->
+    <div class="calendar-button" id="calendarTrigger">
+        <svg viewBox="0 0 24 24">
+            <path d="M19 4h-1V2h-2v2H8V2H6v2H5c-1.11 0-1.99.9-1.99 2L3 20c0 1.1.89 2 2 2h14c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 16H5V10h14v10zM9 14H7v-2h2v2zm4 0h-2v-2h2v2zm4 0h-2v-2h2v2zm-8 4H7v-2h2v2zm4 0h-2v-2h2v2zm4 0h-2v-2h2v2z"/>
+        </svg>
+    </div>
+
+    <!-- Calendar Overlay -->
+    <div class="calendar-overlay" id="calendarOverlay">
+        <div class="calendar-container">
+            <div class="close-calendar" id="closeCalendar">×</div>
+            <div class="calendar-header">
+                <h2 class="calendar-title">2026 Speaking Engagements</h2>
+                <p class="calendar-subtitle">Upcoming conferences & presentations</p>
+            </div>
+            
+            <div class="speaking-event">
+                <span class="event-date">February 23-25, 2026</span>
+                <h3 class="event-name">Training 2026 Conference & Expo</h3>
+                <p class="event-location">
+                    <svg style="width: 16px; height: 16px; fill: currentColor;" viewBox="0 0 24 24">
+                        <path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/>
+                    </svg>
+                    Disney's Coronado Springs Resort, Orlando, FL
+                </p>
+                <p class="event-description">The leading training industry conference covering instructional design, e-learning, and learning technology. Speaking on immersive learning experiences and XR in workplace training.</p>
+            </div>
+
+            <div class="speaking-event">
+                <span class="event-date">TBD 2026</span>
+                <h3 class="event-name">Central Iowa ATD Professional Development Day</h3>
+                <p class="event-location">
+                    <svg style="width: 16px; height: 16px; fill: currentColor;" viewBox="0 0 24 24">
+                        <path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/>
+                    </svg>
+                    Central Iowa
+                </p>
+                <p class="event-description">Annual professional development day for talent development professionals. Sharing innovations in AR/VR, AI integration, and the future of learning technology.</p>
+            </div>
+
+            <div class="speaking-event" style="opacity: 0.6;">
+                <span class="event-date" style="background: rgba(124, 58, 237, 0.3);">Stay Tuned</span>
+                <h3 class="event-name">More Engagements Coming Soon</h3>
+                <p class="event-description">Additional 2026 speaking engagements will be announced. Check back for updates on AWE USA 2025, DevLearn, and other major conferences.</p>
+            </div>
+        </div>
+    </div>
+
     <!-- Easter Egg Video Button -->
     <div class="easter-egg-button" id="videoTrigger">
         <svg viewBox="0 0 24 24">
@@ -1683,6 +1904,35 @@
         document.addEventListener('keydown', (e) => {
             if (e.key === 'Escape' && videoOverlay.classList.contains('active')) {
                 closeVideoOverlay();
+            }
+            if (e.key === 'Escape' && calendarOverlay.classList.contains('active')) {
+                closeCalendarOverlay();
+            }
+        });
+    </script>
+
+    <script>
+        // Calendar Modal Controls
+        const calendarTrigger = document.getElementById('calendarTrigger');
+        const calendarOverlay = document.getElementById('calendarOverlay');
+        const closeCalendar = document.getElementById('closeCalendar');
+
+        // Open calendar overlay
+        calendarTrigger.addEventListener('click', () => {
+            calendarOverlay.classList.add('active');
+        });
+
+        // Close calendar overlay
+        function closeCalendarOverlay() {
+            calendarOverlay.classList.remove('active');
+        }
+
+        closeCalendar.addEventListener('click', closeCalendarOverlay);
+
+        // Close on overlay background click
+        calendarOverlay.addEventListener('click', (e) => {
+            if (e.target === calendarOverlay) {
+                closeCalendarOverlay();
             }
         });
     </script>
