@@ -339,10 +339,10 @@
 
         .logo {
             position: absolute;
-            left: 50%;
+            right: 5%;
             top: 50%;
-            transform: translate(-50%, -50%);
-            width: 280px;
+            transform: translateY(-50%);
+            width: 140px;
             height: auto;
             opacity: 0.15;
             filter: drop-shadow(0 8px 16px rgba(124, 58, 237, 0.4)) blur(1px);
@@ -352,8 +352,8 @@
         }
 
         @keyframes floatLogo {
-            0%, 100% { transform: translate(-50%, -50%) translateY(0px); }
-            50% { transform: translate(-50%, -50%) translateY(-10px); }
+            0%, 100% { transform: translateY(-50%) translateY(0px); }
+            50% { transform: translateY(-50%) translateY(-10px); }
         }
 
         .text-content {
@@ -362,6 +362,7 @@
             position: relative;
             z-index: 2;
             width: 100%;
+            padding-left: 5%;
         }
 
         @keyframes slideInRight {
@@ -401,6 +402,7 @@
         .divider-artifact {
             display: flex;
             align-items: center;
+            justify-content: flex-start;
             gap: 15px;
             margin: 20px 0;
             animation: fadeIn 1s ease-out 0.6s both;
@@ -414,7 +416,7 @@
         .divider-line {
             height: 2px;
             flex: 1;
-            background: linear-gradient(90deg, transparent, rgba(124, 58, 237, 0.5), transparent);
+            background: linear-gradient(90deg, rgba(124, 58, 237, 0.5), transparent);
         }
 
         .pulse-icon {
@@ -860,7 +862,7 @@
         }
 
         footer {
-            text-align: center;
+            text-align: left;
             padding: 60px 20px 60px;
             background: transparent;
             margin-top: 40px;
@@ -892,15 +894,16 @@
         }
 
         .footer-content {
-            max-width: 800px;
+            max-width: 1200px;
             margin: 0 auto;
+            padding: 0 5%;
             animation: fadeInUp 1s ease-out;
         }
 
         .footer-header {
             display: flex;
             align-items: center;
-            justify-content: center;
+            justify-content: flex-start;
             gap: 20px;
             flex-wrap: wrap;
             margin-bottom: 24px;
@@ -934,7 +937,11 @@
             font-size: 0.95em;
             color: #777;
             line-height: 1.7;
-            margin-top: 20px;
+            margin-top: 16px;
+            margin-bottom: 0;
+            max-width: 650px;
+            margin-left: 0;
+            margin-right: auto;
         }
 
         .contact-info {
@@ -943,6 +950,7 @@
             flex-direction: column;
             gap: 12px;
             align-items: center;
+            text-align: center;
         }
 
         .contact-item {
@@ -1003,7 +1011,7 @@
         .footer-divider {
             display: flex;
             align-items: center;
-            justify-content: center;
+            justify-content: flex-start;
             gap: 15px;
             margin: 24px 0;
         }
@@ -1011,7 +1019,7 @@
         .footer-divider-line {
             width: 60px;
             height: 1px;
-            background: linear-gradient(90deg, transparent, rgba(124, 58, 237, 0.5), transparent);
+            background: linear-gradient(90deg, rgba(124, 58, 237, 0.5), transparent);
         }
 
         .footer-icon {
@@ -1021,9 +1029,26 @@
         }
 
         @media (max-width: 768px) {
+            footer {
+                text-align: center;
+            }
+
+            footer::before {
+                left: 50%;
+                right: auto;
+                transform: translateX(-50%);
+                width: 80%;
+                background: linear-gradient(90deg, transparent, rgba(124, 58, 237, 0.3), transparent);
+            }
+
+            .footer-content {
+                padding: 0;
+            }
+
             .footer-header {
                 flex-direction: column;
                 gap: 12px;
+                justify-content: center;
             }
 
             .footer-separator {
@@ -1036,6 +1061,27 @@
 
             .footer-subtitle {
                 font-size: 1em;
+            }
+
+            .footer-divider {
+                justify-content: center;
+            }
+
+            .footer-divider-line {
+                background: linear-gradient(90deg, transparent, rgba(124, 58, 237, 0.5), transparent);
+            }
+
+            .footer-tagline {
+                margin: 20px auto 0;
+            }
+
+            .contact-info {
+                align-items: center;
+                text-align: center;
+            }
+
+            .social-links {
+                justify-content: center;
             }
         }
 
@@ -1229,8 +1275,9 @@
             <div class="section-divider">
                 <div class="section-divider-line"></div>
                 <svg class="section-icon" viewBox="0 0 30 30" fill="none" xmlns="http://www.w3.org/2000/svg">
-                    <polygon points="15,2 22,10 22,18 15,28 8,18 8,10" stroke="url(#sectionGrad)" stroke-width="2" fill="none"/>
-                    <circle cx="15" cy="15" r="4" fill="url(#sectionGrad)"/>
+                    <circle cx="15" cy="15" r="13" stroke="url(#sectionGrad)" stroke-width="2" opacity="0.6"/>
+                    <circle cx="15" cy="15" r="9" stroke="url(#sectionGrad)" stroke-width="2" opacity="0.8"/>
+                    <circle cx="15" cy="15" r="5" fill="url(#sectionGrad)"/>
                     <defs>
                         <linearGradient id="sectionGrad" x1="0%" y1="0%" x2="100%" y2="100%">
                             <stop offset="0%" style="stop-color:#667eea;stop-opacity:1" />
@@ -1471,10 +1518,12 @@
                     <span class="footer-separator">|</span>
                     <p class="footer-subtitle">Learning Technology Consultant | Conference Speaker | XR Innovator</p>
                 </div>
+                <p class="footer-tagline">Specializing in AR/VR/MR, AI Integration, and Gamified Learning Experiences</p>
                 <div class="footer-divider">
                     <div class="footer-divider-line"></div>
                     <svg class="footer-icon" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                        <circle cx="12" cy="12" r="10" stroke="url(#footerGrad)" stroke-width="2"/>
+                        <circle cx="12" cy="12" r="10" stroke="url(#footerGrad)" stroke-width="2" opacity="0.6"/>
+                        <circle cx="12" cy="12" r="7" stroke="url(#footerGrad)" stroke-width="2" opacity="0.8"/>
                         <circle cx="12" cy="12" r="4" fill="url(#footerGrad)"/>
                         <defs>
                             <linearGradient id="footerGrad" x1="0%" y1="0%" x2="100%" y2="100%">
@@ -1486,7 +1535,6 @@
                     </svg>
                     <div class="footer-divider-line"></div>
                 </div>
-                <p class="footer-tagline">Specializing in AR/VR/MR, AI Integration, and Gamified Learning Experiences</p>
                 
                 <div class="contact-info">
                     <a href="/cdn-cgi/l/email-protection#d3b7b6a0a7b6a1aa93b7b6a0a7b6a1aae2b8b6bdbcb1bafdb0bcbe" class="contact-item">
