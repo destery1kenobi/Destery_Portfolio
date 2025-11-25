@@ -338,32 +338,30 @@
         }
 
         .logo {
-            width: 140px;
+            position: absolute;
+            left: 50%;
+            top: 50%;
+            transform: translate(-50%, -50%);
+            width: 280px;
             height: auto;
-            filter: drop-shadow(0 8px 16px rgba(124, 58, 237, 0.4));
-            animation: slideInLeft 1s ease-out, floatLogo 3s ease-in-out 1s infinite;
-            flex-shrink: 0;
-        }
-
-        @keyframes slideInLeft {
-            from {
-                opacity: 0;
-                transform: translateX(-100px);
-            }
-            to {
-                opacity: 1;
-                transform: translateX(0);
-            }
+            opacity: 0.15;
+            filter: drop-shadow(0 8px 16px rgba(124, 58, 237, 0.4)) blur(1px);
+            animation: floatLogo 3s ease-in-out infinite;
+            z-index: 0;
+            pointer-events: none;
         }
 
         @keyframes floatLogo {
-            0%, 100% { transform: translateY(0px); }
-            50% { transform: translateY(-10px); }
+            0%, 100% { transform: translate(-50%, -50%) translateY(0px); }
+            50% { transform: translate(-50%, -50%) translateY(-10px); }
         }
 
         .text-content {
             text-align: left;
             animation: slideInRight 1s ease-out;
+            position: relative;
+            z-index: 2;
+            width: 100%;
         }
 
         @keyframes slideInRight {
@@ -454,12 +452,13 @@
                 gap: 30px;
             }
 
-            .text-content {
-                text-align: center;
+            .logo {
+                width: 200px;
+                opacity: 0.12;
             }
 
-            .logo {
-                width: 120px;
+            .text-content {
+                text-align: center;
             }
 
             h1 {
@@ -469,6 +468,20 @@
             .tagline {
                 font-size: 1em;
             }
+
+            .section-title-wrapper {
+                text-align: center;
+                padding-right: 0;
+            }
+
+            .section-subtitle {
+                margin: 0 auto;
+            }
+
+            .section-divider {
+                justify-content: center;
+                padding-right: 0;
+            }
         }
 
         @media (max-width: 640px) {
@@ -477,7 +490,8 @@
             }
 
             .logo {
-                width: 100px;
+                width: 160px;
+                opacity: 0.1;
             }
 
             .divider-artifact {
@@ -491,8 +505,9 @@
         }
 
         .section-title-wrapper {
-            text-align: center;
-            margin: 40px 0 50px;
+            text-align: right;
+            margin: 20px 0 50px;
+            padding-right: 5%;
             position: relative;
             animation: fadeInUp 1s ease-out 1.2s both;
         }
@@ -513,16 +528,18 @@
             font-size: 1em;
             color: #a0a0a0;
             max-width: 650px;
-            margin: 0 auto;
+            margin-left: auto;
+            margin-right: 0;
             line-height: 1.7;
         }
 
         .section-divider {
             display: flex;
             align-items: center;
-            justify-content: center;
+            justify-content: flex-end;
             gap: 15px;
             margin-top: 20px;
+            padding-right: 50px;
         }
 
         .section-divider-line {
@@ -880,6 +897,15 @@
             animation: fadeInUp 1s ease-out;
         }
 
+        .footer-header {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 20px;
+            flex-wrap: wrap;
+            margin-bottom: 24px;
+        }
+
         .footer-title {
             font-size: 2em;
             font-weight: 700;
@@ -887,15 +913,21 @@
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
             background-clip: text;
-            margin-bottom: 16px;
             letter-spacing: -0.01em;
+            margin: 0;
+        }
+
+        .footer-separator {
+            color: #667eea;
+            font-size: 1.5em;
+            opacity: 0.6;
         }
 
         .footer-subtitle {
             font-size: 1.1em;
             color: #a0a0a0;
-            margin-bottom: 12px;
             line-height: 1.6;
+            margin: 0;
         }
 
         .footer-tagline {
@@ -989,12 +1021,147 @@
         }
 
         @media (max-width: 768px) {
+            .footer-header {
+                flex-direction: column;
+                gap: 12px;
+            }
+
+            .footer-separator {
+                display: none;
+            }
+
             .footer-title {
                 font-size: 1.6em;
             }
 
             .footer-subtitle {
                 font-size: 1em;
+            }
+        }
+
+        /* Easter Egg Video Button */
+        .easter-egg-button {
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            width: 60px;
+            height: 60px;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            z-index: 1000;
+            box-shadow: 0 8px 24px rgba(124, 58, 237, 0.4);
+            transition: all 0.3s ease;
+            animation: easterEggPulse 2s ease-in-out infinite;
+        }
+
+        .easter-egg-button:hover {
+            transform: scale(1.1);
+            box-shadow: 0 12px 32px rgba(124, 58, 237, 0.6);
+        }
+
+        .easter-egg-button svg {
+            width: 28px;
+            height: 28px;
+            fill: white;
+        }
+
+        @keyframes easterEggPulse {
+            0%, 100% {
+                transform: scale(1);
+                box-shadow: 0 8px 24px rgba(124, 58, 237, 0.4);
+            }
+            50% {
+                transform: scale(1.05);
+                box-shadow: 0 12px 32px rgba(124, 58, 237, 0.6);
+            }
+        }
+
+        /* Video Overlay */
+        .video-overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: rgba(0, 0, 0, 0.95);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            z-index: 9999;
+            opacity: 0;
+            visibility: hidden;
+            transition: opacity 0.4s ease, visibility 0.4s ease;
+        }
+
+        .video-overlay.active {
+            opacity: 1;
+            visibility: visible;
+        }
+
+        .video-container {
+            position: relative;
+            max-width: 90vw;
+            max-height: 90vh;
+            transform: scale(0.9);
+            transition: transform 0.4s ease;
+        }
+
+        .video-overlay.active .video-container {
+            transform: scale(1);
+        }
+
+        .video-container video {
+            max-width: 100%;
+            max-height: 90vh;
+            border-radius: 12px;
+            box-shadow: 0 20px 60px rgba(124, 58, 237, 0.5);
+        }
+
+        .close-video {
+            position: absolute;
+            top: -50px;
+            right: 0;
+            background: rgba(255, 255, 255, 0.1);
+            border: 2px solid rgba(255, 255, 255, 0.3);
+            color: white;
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            font-size: 24px;
+            transition: all 0.3s ease;
+        }
+
+        .close-video:hover {
+            background: rgba(255, 255, 255, 0.2);
+            border-color: rgba(255, 255, 255, 0.5);
+            transform: rotate(90deg);
+        }
+
+        @media (max-width: 768px) {
+            .easter-egg-button {
+                width: 50px;
+                height: 50px;
+                bottom: 20px;
+                right: 20px;
+            }
+
+            .easter-egg-button svg {
+                width: 24px;
+                height: 24px;
+            }
+
+            .close-video {
+                top: -45px;
+                width: 36px;
+                height: 36px;
             }
         }
 
@@ -1299,7 +1466,11 @@
 
         <footer>
             <div class="footer-content">
-                <h3 class="footer-title">Destery1Kenobi LLC</h3>
+                <div class="footer-header">
+                    <h3 class="footer-title">Destery1Kenobi LLC</h3>
+                    <span class="footer-separator">|</span>
+                    <p class="footer-subtitle">Learning Technology Consultant | Conference Speaker | XR Innovator</p>
+                </div>
                 <div class="footer-divider">
                     <div class="footer-divider-line"></div>
                     <svg class="footer-icon" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -1315,15 +1486,14 @@
                     </svg>
                     <div class="footer-divider-line"></div>
                 </div>
-                <p class="footer-subtitle">Learning Technology Consultant | Conference Speaker | XR Innovator</p>
                 <p class="footer-tagline">Specializing in AR/VR/MR, AI Integration, and Gamified Learning Experiences</p>
                 
                 <div class="contact-info">
-                    <a href="mailto:destery@destery1kenobi.com" class="contact-item">
+                    <a href="/cdn-cgi/l/email-protection#d3b7b6a0a7b6a1aa93b7b6a0a7b6a1aae2b8b6bdbcb1bafdb0bcbe" class="contact-item">
                         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
                             <path d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"/>
                         </svg>
-                        destery@destery1kenobi.com
+                        <span class="__cf_email__" data-cfemail="fa9e9f898e9f8883ba9e9f898e9f8883cb919f94959893d4999597">[email&#160;protected]</span>
                     </a>
                     <a href="https://www.destery1kenobi.com" target="_blank" class="contact-item">
                         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
@@ -1362,7 +1532,25 @@
         </footer>
     </div>
 
-    <script>
+    <!-- Easter Egg Video Button -->
+    <div class="easter-egg-button" id="videoTrigger">
+        <svg viewBox="0 0 24 24">
+            <path d="M8 5v14l11-7z"/>
+        </svg>
+    </div>
+
+    <!-- Video Overlay -->
+    <div class="video-overlay" id="videoOverlay">
+        <div class="video-container">
+            <div class="close-video" id="closeVideo">×</div>
+            <video id="easterEggVideo" controls>
+                <source src="wookie-video.mp4" type="video/mp4">
+                Your browser does not support the video tag.
+            </video>
+        </div>
+    </div>
+
+    <script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>
         let isAnimating = false;
 
         // Function to get the current top card
@@ -1412,6 +1600,43 @@
                 });
             }, 400);
         }
+    </script>
+
+    <script>
+        // Easter Egg Video Controls
+        const videoTrigger = document.getElementById('videoTrigger');
+        const videoOverlay = document.getElementById('videoOverlay');
+        const closeVideo = document.getElementById('closeVideo');
+        const easterEggVideo = document.getElementById('easterEggVideo');
+
+        // Open video overlay
+        videoTrigger.addEventListener('click', () => {
+            videoOverlay.classList.add('active');
+            easterEggVideo.play();
+        });
+
+        // Close video overlay
+        function closeVideoOverlay() {
+            videoOverlay.classList.remove('active');
+            easterEggVideo.pause();
+            easterEggVideo.currentTime = 0;
+        }
+
+        closeVideo.addEventListener('click', closeVideoOverlay);
+
+        // Close on overlay background click
+        videoOverlay.addEventListener('click', (e) => {
+            if (e.target === videoOverlay) {
+                closeVideoOverlay();
+            }
+        });
+
+        // Close on Escape key
+        document.addEventListener('keydown', (e) => {
+            if (e.key === 'Escape' && videoOverlay.classList.contains('active')) {
+                closeVideoOverlay();
+            }
+        });
     </script>
 </body>
 </html>
