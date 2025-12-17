@@ -1107,7 +1107,7 @@
         /* Speaking Calendar Button */
         .calendar-button {
             position: fixed;
-            bottom: 100px;
+            Top: 20px;
             right: 30px;
             width: 60px;
             height: 60px;
@@ -1135,14 +1135,10 @@
         }
 
         @keyframes calendarPulse {
-            0%, 100% {
-                transform: scale(1);
-                box-shadow: 0 8px 24px rgba(240, 147, 251, 0.4);
-            }
-            50% {
-                transform: scale(1.05);
-                box-shadow: 0 12px 32px rgba(240, 147, 251, 0.6);
-            }
+            0% { box-shadow: 0 0 0 0 rgba(161, 0, 255, 0.6); }
+  		70% { box-shadow: 0 0 0 12px rgba(161, 0, 255, 0); }
+  		100% { box-shadow: 0 0 0 0 rgba(161, 0, 255, 0); }
+}
         }
 
         /* Calendar Modal */
@@ -1524,26 +1520,31 @@
                     </a>
                 </div>
 
-                <!-- Mars Survival Card Game -->
-                <div class="portfolio-card">
-                    <svg class="card-icon" viewBox="0 0 80 80" fill="none" xmlns="http://www.w3.org/2000/svg">
-                        <rect x="15" y="10" width="35" height="50" rx="4" fill="url(#grad3)" opacity="0.3"/>
-                        <rect x="25" y="20" width="35" height="50" rx="4" stroke="url(#grad3)" stroke-width="2"/>
-                        <circle cx="42.5" cy="35" r="8" stroke="url(#grad3)" stroke-width="2"/>
-                        <path d="M30 50 L55 50 M30 56 L55 56 M30 62 L50 62" stroke="url(#grad3)" stroke-width="2" stroke-linecap="round"/>
-                        <defs>
-                            <linearGradient id="grad3" x1="0%" y1="0%" x2="100%" y2="100%">
-                                <stop offset="0%" style="stop-color:#fa709a;stop-opacity:1" />
-                                <stop offset="100%" style="stop-color:#fee140;stop-opacity:1" />
-                            </linearGradient>
-                        </defs>
-                    </svg>
-                    <h3 class="card-title">Mars Survival Card Game</h3>
-                    <p class="card-description">Interactive card game built in Articulate Storyline where learners must make strategic decisions to survive on Mars. Video demonstration of gameplay mechanics.</p>
-                    <a href="https://drive.google.com/file/d/1lG2d_doCgTgn-saeUxTic4f3jQHhTNaE/view?usp=sharing" target="_blank" class="card-button">
-                        Watch Demo Video →
-                    </a>
-                </div>
+                <!-- Risk Quest -->
+<div class="portfolio-card">
+    <svg class="card-icon" viewBox="0 0 80 80" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <!-- Simple "risk" icon: shield + pulse line -->
+        <path d="M40 10 L60 18 V36 C60 52 50 64 40 70 C30 64 20 52 20 36 V18 Z"
+              stroke="url(#gradRisk)" stroke-width="2" fill="url(#gradRisk)" opacity="0.15"/>
+        <path d="M26 42 L34 42 L38 34 L44 50 L48 42 L56 42"
+              stroke="url(#gradRisk)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+        <defs>
+            <linearGradient id="gradRisk" x1="0%" y1="0%" x2="100%" y2="100%">
+                <stop offset="0%" style="stop-color:#21d4fd;stop-opacity:1" />
+                <stop offset="100%" style="stop-color:#b721ff;stop-opacity:1" />
+            </linearGradient>
+        </defs>
+    </svg>
+    <h3 class="card-title">Risk Quest</h3>
+    <p class="card-description">
+        Interactive, game-based learning experience that simulates real-world risk decisions through rapid play,
+        feedback loops, and scenario-based challenges.
+    </p>
+    <a href="https://destery1kenobi.github.io/Risk-Quest/" target="_blank" class="card-button">
+        Launch Experience →
+    </a>
+</div>
+
 
                 <!-- VR AI Avatar -->
                 <div class="portfolio-card">
@@ -1794,15 +1795,20 @@
             </div>
 
             <div class="speaking-event">
-                <span class="event-date">TBD 2026</span>
+                <span class="event-date">March 5-6, 2026</span>
                 <h3 class="event-name">Central Iowa ATD Professional Development Day</h3>
                 <p class="event-location">
                     <svg style="width: 16px; height: 16px; fill: currentColor;" viewBox="0 0 24 24">
                         <path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/>
                     </svg>
-                    Central Iowa
+                    Meadows Event &amp; Conference Center, Prairie Meadows, Altoona, IA
                 </p>
-                <p class="event-description">Annual professional development day for talent development professionals. Sharing innovations in AR/VR, AI integration, and the future of learning technology.</p>
+                <p class="event-description"><strong>Session:</strong> YOU CAN CODE: VIBECODING HTML, CSS, AND JAVASCRIPT LEARNING EXPERIENCES<br>
+                Instructional designers don’t need to be developers to create powerful, interactive learning experiences. This session teaches a vibecoding approach that breaks content into modular pieces and empowers designers to orchestrate builds using HTML, CSS, and JavaScript. Through guided sprints and hands-on exploration, participants will build simple interactions and walk away with templates and scaffolds they can immediately apply.<br><br>
+                <strong>Attendees will engage by:</strong><br>
+                1) Breaking down complex builds into manageable components for fast prototyping.<br>
+                2) Participating in guided coding sprints using starter scaffolds.<br>
+                3) Applying orchestration strategies to know when to automate, customize, or hand off development tasks.</p>
             </div>
 
             <div class="speaking-event" style="opacity: 0.6;">
