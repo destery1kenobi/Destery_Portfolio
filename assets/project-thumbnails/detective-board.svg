@@ -1,0 +1,49 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="960" height="540" viewBox="0 0 960 540" role="img" aria-labelledby="title desc">
+  <title>Project thumbnail</title>
+  <desc>Abstract technology-themed project thumbnail.</desc>
+  
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#0f1525"/>
+      <stop offset="0.55" stop-color="#0d1120"/>
+      <stop offset="1" stop-color="#07090f"/>
+    </linearGradient>
+    <radialGradient id="glow" cx="50%" cy="45%" r="60%">
+      <stop offset="0" stop-color="#a100ff" stop-opacity="0.30"/>
+      <stop offset="1" stop-color="#a100ff" stop-opacity="0"/>
+    </radialGradient>
+    <filter id="soft" x="-20%" y="-20%" width="140%" height="140%">
+      <feGaussianBlur stdDeviation="3"/>
+    </filter>
+  </defs>
+
+  <rect width="960" height="540" fill="url(#bg)"/>
+  <rect width="960" height="540" fill="url(#glow)"/>
+  <g opacity="0.25" stroke="#ef4444" stroke-width="1">
+    <path d="M0 92 H960 M0 184 H960 M0 276 H960 M0 368 H960 M0 460 H960"/>
+    <path d="M120 0 V540 M240 0 V540 M360 0 V540 M480 0 V540 M600 0 V540 M720 0 V540 M840 0 V540"/>
+  </g>
+  <g opacity="0.25" fill="none" stroke="#ef4444" stroke-width="2">
+    <circle cx="170" cy="120" r="3" fill="#ef4444"/><circle cx="790" cy="400" r="3" fill="#ef4444"/>
+    <path d="M170 120 C300 40 465 180 595 105 S820 180 790 400"/>
+  </g>
+  
+  <g transform="translate(0 0)">
+    <rect x="180" y="95" width="600" height="350" rx="20" fill="#29170e" stroke="#f59e0b" stroke-width="6" opacity="0.95"/>
+    <g stroke="#ef4444" stroke-width="6" opacity="0.88">
+      <path d="M310 220 L480 165 L650 255 L520 350 L310 220"/>
+      <path d="M480 165 L405 335"/>
+    </g>
+    <g fill="#f0f0f4" stroke="#0d1120" stroke-width="4">
+      <rect x="258" y="172" width="105" height="88" rx="5" transform="rotate(-5 310 216)"/>
+      <rect x="420" y="120" width="120" height="95" rx="5" transform="rotate(4 480 168)"/>
+      <rect x="598" y="205" width="110" height="92" rx="5" transform="rotate(-8 653 250)"/>
+      <rect x="348" y="295" width="115" height="78" rx="5" transform="rotate(8 405 334)" fill="#f5d58d"/>
+      <rect x="485" y="305" width="115" height="88" rx="5" transform="rotate(-4 543 349)"/>
+    </g>
+    <g fill="#ef4444">
+      <circle cx="310" cy="220" r="11"/><circle cx="480" cy="165" r="11"/><circle cx="650" cy="255" r="11"/><circle cx="520" cy="350" r="11"/><circle cx="405" cy="335" r="11"/>
+    </g>
+  </g>
+
+</svg>

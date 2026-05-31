@@ -1,0 +1,43 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="960" height="540" viewBox="0 0 960 540" role="img" aria-labelledby="title desc">
+  <title>Project thumbnail</title>
+  <desc>Abstract technology-themed project thumbnail.</desc>
+  
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#0f1525"/>
+      <stop offset="0.55" stop-color="#0d1120"/>
+      <stop offset="1" stop-color="#07090f"/>
+    </linearGradient>
+    <radialGradient id="glow" cx="50%" cy="45%" r="60%">
+      <stop offset="0" stop-color="#a100ff" stop-opacity="0.30"/>
+      <stop offset="1" stop-color="#a100ff" stop-opacity="0"/>
+    </radialGradient>
+    <filter id="soft" x="-20%" y="-20%" width="140%" height="140%">
+      <feGaussianBlur stdDeviation="3"/>
+    </filter>
+  </defs>
+
+  <rect width="960" height="540" fill="url(#bg)"/>
+  <rect width="960" height="540" fill="url(#glow)"/>
+  <g opacity="0.25" stroke="#f59e0b" stroke-width="1">
+    <path d="M0 92 H960 M0 184 H960 M0 276 H960 M0 368 H960 M0 460 H960"/>
+    <path d="M120 0 V540 M240 0 V540 M360 0 V540 M480 0 V540 M600 0 V540 M720 0 V540 M840 0 V540"/>
+  </g>
+  <g opacity="0.25" fill="none" stroke="#f59e0b" stroke-width="2">
+    <circle cx="170" cy="120" r="3" fill="#f59e0b"/><circle cx="790" cy="400" r="3" fill="#f59e0b"/>
+    <path d="M170 120 C300 40 465 180 595 105 S820 180 790 400"/>
+  </g>
+  
+  <g transform="translate(0 0)" fill="none" stroke-linecap="round" stroke-linejoin="round">
+    <path d="M170 370 C305 160 560 155 790 240" stroke="#00b4ff" stroke-width="6" stroke-dasharray="16 18" opacity="0.75"/>
+    <g transform="translate(470 210) rotate(-16)">
+      <path d="M-170 0 H95 L160 -55 L180 -35 L135 0 L180 35 L160 55 L95 0" fill="#f59e0b" opacity="0.95"/>
+      <path d="M-45 -15 L45 -105 L72 -88 L20 0" fill="#f59e0b" opacity="0.72"/>
+      <path d="M-45 15 L45 105 L72 88 L20 0" fill="#f59e0b" opacity="0.72"/>
+    </g>
+    <g fill="#f0f0f4" opacity="0.8">
+      <circle cx="170" cy="370" r="9"/><circle cx="790" cy="240" r="9"/>
+    </g>
+  </g>
+
+</svg>
