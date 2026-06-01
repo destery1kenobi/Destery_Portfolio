@@ -1,0 +1,54 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="960" height="540" viewBox="0 0 960 540" role="img" aria-labelledby="title desc">
+  <title>AI 101 Presentation thumbnail</title>
+  <desc>Abstract technology-themed thumbnail showing an AI presentation command interface.</desc>
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#0f1525"/>
+      <stop offset="0.55" stop-color="#0d1120"/>
+      <stop offset="1" stop-color="#07090f"/>
+    </linearGradient>
+    <radialGradient id="glow" cx="50%" cy="50%" r="62%">
+      <stop offset="0" stop-color="#00b4ff" stop-opacity="0.26"/>
+      <stop offset="0.55" stop-color="#a100ff" stop-opacity="0.16"/>
+      <stop offset="1" stop-color="#a100ff" stop-opacity="0"/>
+    </radialGradient>
+    <filter id="shadow" x="-20%" y="-20%" width="140%" height="140%">
+      <feDropShadow dx="0" dy="16" stdDeviation="12" flood-color="#000000" flood-opacity="0.42"/>
+    </filter>
+  </defs>
+  <rect width="960" height="540" fill="url(#bg)"/>
+  <rect width="960" height="540" fill="url(#glow)"/>
+  <g opacity="0.2" stroke="#a100ff" stroke-width="1">
+    <path d="M0 90 H960 M0 180 H960 M0 270 H960 M0 360 H960 M0 450 H960"/>
+    <path d="M120 0 V540 M240 0 V540 M360 0 V540 M480 0 V540 M600 0 V540 M720 0 V540 M840 0 V540"/>
+  </g>
+  <g opacity="0.32" fill="none" stroke="#00b4ff" stroke-width="2">
+    <circle cx="130" cy="120" r="4" fill="#00b4ff"/>
+    <circle cx="820" cy="415" r="4" fill="#a100ff"/>
+    <path d="M130 120 C260 70 350 205 470 150 S690 80 820 415"/>
+  </g>
+  <g filter="url(#shadow)">
+    <rect x="165" y="105" width="630" height="330" rx="24" fill="#111827" stroke="#a100ff" stroke-width="3"/>
+    <rect x="165" y="105" width="630" height="58" rx="24" fill="#07090f" opacity="0.72"/>
+    <circle cx="210" cy="134" r="8" fill="#ef4444" opacity="0.75"/>
+    <circle cx="237" cy="134" r="8" fill="#f59e0b" opacity="0.75"/>
+    <circle cx="264" cy="134" r="8" fill="#10b981" opacity="0.75"/>
+  </g>
+  <g font-family="'DM Mono', 'Courier New', monospace" font-weight="700">
+    <text x="215" y="222" fill="#a100ff" font-size="38">AI_101</text>
+    <text x="215" y="268" fill="#f0f0f4" font-size="26" opacity="0.9">FROM UNDERSTANDING</text>
+    <text x="215" y="304" fill="#f0f0f4" font-size="26" opacity="0.9">TO ACTION</text>
+    <text x="215" y="362" fill="#10b981" font-size="22">$ run practical_workflow.sh</text>
+  </g>
+  <g transform="translate(610 208)">
+    <circle cx="0" cy="0" r="72" fill="#00b4ff" opacity="0.16"/>
+    <circle cx="0" cy="0" r="50" fill="#a100ff" opacity="0.22"/>
+    <path d="M-34 -4 h68 M-18 -26 h36 M-24 20 h48" stroke="#f0f0f4" stroke-width="9" stroke-linecap="round" opacity="0.9"/>
+    <path d="M0 -70 v-42 M0 70 v42 M-70 0 h-42 M70 0 h42" stroke="#00b4ff" stroke-width="6" stroke-linecap="round" opacity="0.8"/>
+  </g>
+  <g opacity="0.55">
+    <rect x="215" y="385" width="120" height="12" rx="6" fill="#00b4ff"/>
+    <rect x="355" y="385" width="95" height="12" rx="6" fill="#a100ff"/>
+    <rect x="470" y="385" width="140" height="12" rx="6" fill="#10b981"/>
+  </g>
+</svg>

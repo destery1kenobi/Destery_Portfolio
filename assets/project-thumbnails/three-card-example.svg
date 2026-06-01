@@ -1,0 +1,53 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="960" height="540" viewBox="0 0 960 540" role="img" aria-labelledby="title desc">
+  <title>3-Card Example thumbnail</title>
+  <desc>Abstract technology-themed thumbnail showing three interactive cards.</desc>
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#0f1525"/>
+      <stop offset="0.55" stop-color="#0d1120"/>
+      <stop offset="1" stop-color="#07090f"/>
+    </linearGradient>
+    <radialGradient id="glow" cx="50%" cy="45%" r="60%">
+      <stop offset="0" stop-color="#a100ff" stop-opacity="0.32"/>
+      <stop offset="1" stop-color="#a100ff" stop-opacity="0"/>
+    </radialGradient>
+    <filter id="shadow" x="-20%" y="-20%" width="140%" height="140%">
+      <feDropShadow dx="0" dy="14" stdDeviation="10" flood-color="#000000" flood-opacity="0.38"/>
+    </filter>
+  </defs>
+  <rect width="960" height="540" fill="url(#bg)"/>
+  <rect width="960" height="540" fill="url(#glow)"/>
+  <g opacity="0.22" stroke="#a100ff" stroke-width="1">
+    <path d="M0 90 H960 M0 180 H960 M0 270 H960 M0 360 H960 M0 450 H960"/>
+    <path d="M120 0 V540 M240 0 V540 M360 0 V540 M480 0 V540 M600 0 V540 M720 0 V540 M840 0 V540"/>
+  </g>
+  <g opacity="0.28" fill="none" stroke="#00b4ff" stroke-width="2">
+    <circle cx="170" cy="130" r="4" fill="#00b4ff"/>
+    <circle cx="790" cy="390" r="4" fill="#00b4ff"/>
+    <path d="M170 130 C320 70 430 170 510 120 S695 80 790 390"/>
+  </g>
+  <g filter="url(#shadow)">
+    <rect x="190" y="150" width="170" height="245" rx="18" fill="#111827" stroke="#a100ff" stroke-width="3"/>
+    <rect x="395" y="110" width="170" height="285" rx="18" fill="#111827" stroke="#00b4ff" stroke-width="3"/>
+    <rect x="600" y="150" width="170" height="245" rx="18" fill="#111827" stroke="#10b981" stroke-width="3"/>
+  </g>
+  <g opacity="0.95">
+    <rect x="220" y="185" width="110" height="12" rx="6" fill="#a100ff"/>
+    <rect x="220" y="220" width="92" height="10" rx="5" fill="#f0f0f4" opacity="0.55"/>
+    <rect x="220" y="248" width="112" height="10" rx="5" fill="#f0f0f4" opacity="0.35"/>
+    <circle cx="275" cy="320" r="34" fill="#a100ff" opacity="0.34"/>
+    <path d="M260 320 l12 12 l25 -32" fill="none" stroke="#f0f0f4" stroke-width="7" stroke-linecap="round" stroke-linejoin="round"/>
+
+    <rect x="425" y="150" width="110" height="12" rx="6" fill="#00b4ff"/>
+    <rect x="425" y="188" width="92" height="10" rx="5" fill="#f0f0f4" opacity="0.55"/>
+    <rect x="425" y="216" width="112" height="10" rx="5" fill="#f0f0f4" opacity="0.35"/>
+    <rect x="440" y="278" width="80" height="80" rx="16" fill="#00b4ff" opacity="0.28"/>
+    <path d="M462 304 h36 M462 327 h36" stroke="#f0f0f4" stroke-width="7" stroke-linecap="round"/>
+
+    <rect x="630" y="185" width="110" height="12" rx="6" fill="#10b981"/>
+    <rect x="630" y="220" width="92" height="10" rx="5" fill="#f0f0f4" opacity="0.55"/>
+    <rect x="630" y="248" width="112" height="10" rx="5" fill="#f0f0f4" opacity="0.35"/>
+    <circle cx="685" cy="320" r="34" fill="#10b981" opacity="0.30"/>
+    <path d="M672 320 h26 M685 307 v26" stroke="#f0f0f4" stroke-width="7" stroke-linecap="round"/>
+  </g>
+</svg>
